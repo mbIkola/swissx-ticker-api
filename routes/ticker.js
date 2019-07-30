@@ -1,9 +1,7 @@
-var express = require('express');
-var router = express.Router();
-//var request = require('request');
-var request = require('cached-request')(require('request'));
-var concat = require('concat-stream');
-// var log = require('../lib/log');
+const express = require('express');
+const router = express.Router();
+const request = require('cached-request')(require('request'));
+const concat = require('concat-stream');
 
 const GanjaRates = 'PREMIUM,BIOMASS,ISO999,H20-SOL,DISTIL,CRUDe'.split(',').map(name => ({
     id: name,
@@ -33,7 +31,7 @@ router.get('/', function(req, res, next) {
     };
 
     const write = concat(function(completeResponse) {
-        var finalResponse = modifyResponse(completeResponse);
+        const finalResponse = modifyResponse(completeResponse);
 
         res.end(finalResponse);
     });
