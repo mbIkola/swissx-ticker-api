@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "DEBUG=swissx-ticker-api:server:* npx forever bin/www",
     "dev": "DEBUG=swissx-ticker-api:server:*,express:router:* nodemon -w . ./bin/www"
   },
   "dependencies": {
@@ -12,6 +12,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "forever": "^1.0.0",
     "morgan": "~1.9.1",
     "request": "^2.88.0"
   },
